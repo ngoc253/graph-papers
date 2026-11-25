@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Printable Graph Paper Dimensions & Grid Specifications (A4 & US Letter)</title>
+  <meta name="description" content="Technical reference guide for standard graph paper grid sizes (5mm, 1/4 inch, dot grid, isometric), print margins, and free vector PDF generation." />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #e2e8f0;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent-bg: #eff6ff;
+      --grid-line: rgba(148, 163, 184, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      background-image: 
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 24px 24px;
+      line-height: 1.65;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+      overflow: hidden;
+    }
+
+    header {
+      padding: 2.5rem 2.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      background: var(--accent-bg);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      line-height: 1.25;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    main {
+      padding: 2.25rem 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 2rem 0 0.85rem;
+      color: var(--text);
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+      border-bottom-color: var(--primary-hover);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0 1.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.925rem;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: var(--text);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: #334155;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0 1.75rem;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.15rem;
+      background: #fcfcfd;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .cta-box {
+      background: var(--accent-bg);
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .cta-text h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .cta-text p {
+      font-size: 0.925rem;
+      margin-bottom: 0;
+      color: #1e40af;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff !important;
+      font-weight: 600;
+      font-size: 0.925rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      border: none;
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+
+    .btn:hover {
+      background: var(--primary-hover);
+    }
+
+    footer {
+      padding: 1.25rem 2.5rem;
+      background: #f8fafc;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      header, main, footer {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="badge">Open Reference Specification</span>
+      <h1>Standard Graph Paper Grid Dimensions & Print Specifications</h1>
+      <p class="subtitle">A practical reference guide for engineers, architects, students, and tabletop designers configuring accurate printable grid templates.</p>
+    </header>
+
+    <main>
+      <h2>1. Metric vs. Imperial Grid Standards</h2>
+      <p>
+        Choosing the right grid spacing prevents scaling errors when transferring hand sketches to CAD software or physical prototypes. Metric regions predominantly rely on 5 mm quad rulings, while North American academic and drafting standards use fractional inch grids.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Grid Type</th>
+              <th>Spacing</th>
+              <th>Cells per Inch / cm</th>
+              <th>Primary Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Metric Quad (5mm)</strong></td>
+              <td>5.0 mm × 5.0 mm</td>
+              <td>2 cells / cm</td>
+              <td>Mathematics, STEM notes, European engineering</td>
+            </tr>
+            <tr>
+              <td><strong>Engineering Quad (4×4)</strong></td>
+              <td>0.25 in (6.35 mm)</td>
+              <td>4 cells / inch</td>
+              <td>US college coursework, floor plans, lab notebooks</td>
+            </tr>
+            <tr>
+              <td><strong>Fine Technical (5×5)</strong></td>
+              <td>0.20 in (5.08 mm)</td>
+              <td>5 cells / inch</td>
+              <td>Circuit schematics, detailed scale drawings</td>
+            </tr>
+            <tr>
+              <td><strong>Bullet / Dot Grid</strong></td>
+              <td>5.0 mm spacing</td>
+              <td>2 dots / cm</td>
+              <td>UI wireframing, bullet journaling, mind mapping</td>
+            </tr>
+            <tr>
+              <td><strong>Isometric (30°/60°)</strong></td>
+              <td>5 mm – 10 mm</td>
+              <td>Triangular lattice</td>
+              <td>3D mechanical projections, game level design</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>2. Selecting the Proper Paper Format</h2>
+      <p>
+        Print scaling issues usually occur when a document formatted for ISO A4 (210 × 297 mm) is printed on US Letter (8.5 × 11 in) with "Fit to Page" enabled—which distorts exact 1:1 grid measurements. Always match your template dimensions to your physical printer tray using a standardized <a href="https://graphpaperkit.com/paper-sizes/">printable paper size reference</a> before exporting.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>5mm Metric Grid</h3>
+          <p>Ideal for clean 1:20 or 1:100 architectural sketches. Download ready-to-print <a href="https://graphpaperkit.com/graph-paper/5mm/">5mm graph paper PDFs</a> calibrated for exact 100% scale printing.</p>
+        </div>
+        <div class="card">
+          <h3>Minimalist Dot Grid</h3>
+          <p>Provides structural alignment without heavy visual clutter. Great for low-contrast <a href="https://graphpaperkit.com/graph-paper/dot-paper/">dot grid paper</a> workflows and wireframe sketching.</p>
+        </div>
+      </div>
+
+      <h2>3. Best Practices for Crisp Vector Printing</h2>
+      <p>
+        Raster images (JPG or low-DPI PNG files) often produce blurry or uneven line weights on laser and inkjet printers. Generating templates directly in vector PDF format ensures hairline precision (typically <code>0.25 pt</code> to <code>0.5 pt</code> stroke width) and clean grayscale contrast that will not overpower pencil or ink annotations.
+      </p>
+
+      <div class="cta-box">
+        <div class="cta-text">
+          <h3>Need Custom Grid Spacing or Line Colors?</h3>
+          <p>Configure exact margins, line weights, and paper formats instantly with the <a href="https://graphpaperkit.com/">GraphPaperKit</a> suite.</p>
+        </div>
+        <a class="btn" href="https://graphpaperkit.com/graph-paper-generator/">Open Grid Generator →</a>
+      </div>
+    </main>
+
+    <footer>
+      <span>Maintained as an open technical reference for printable stationery & drafting.</span>
+      <span>Format: Vector PDF / ISO & ANSI Standards</span>
+    </footer>
+  </div>
+</body>
+</html>
